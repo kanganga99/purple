@@ -1,0 +1,637 @@
+-- phpMyAdmin SQL Dump
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Mar 22, 2022 at 06:47 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.1
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `myuzaplus`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `advances`
+--
+
+CREATE TABLE `advances` (
+  `id` int(255) NOT NULL,
+  `company_id` varchar(255) NOT NULL,
+  `username` varchar(255) DEFAULT NULL,
+  `amount` int(255) DEFAULT NULL,
+  `startdate` varchar(255) DEFAULT NULL,
+  `deadline` varchar(255) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `advances`
+--
+
+INSERT INTO `advances` (`id`, `company_id`, `username`, `amount`, `startdate`, `deadline`, `status`) VALUES
+(1, '34', 'Francis', 9, '20.11.2021', '20.6.2022', 'Approve'),
+(2, '34', 'Evans', 5, '20.11.2021', '22.6.2022', 'Decline'),
+(3, '34', 'Fred', 7, '20.11.2021', '20.6.2022', 'Approve'),
+(4, '34', 'Jesse', 8, '20.11.2021', '20.6.2022', 'Decline'),
+(5, '34', 'John', 6, '20.12.2021', '20.6.2022', 'Approve'),
+(6, '34', 'Josh', 10, '19.12.2021', '22.7.2022', 'Decline');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `balance_sheet`
+--
+
+CREATE TABLE `balance_sheet` (
+  `id` int(11) NOT NULL,
+  `company_id` varchar(255) NOT NULL,
+  `date` date NOT NULL,
+  `non_current_asset` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`non_current_asset`)),
+  `nc_total` varchar(1000) NOT NULL,
+  `current_asset` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`current_asset`)),
+  `c_total` varchar(1000) NOT NULL,
+  `total_assets` varchar(1000) NOT NULL,
+  `equity_total` varchar(1000) NOT NULL,
+  `non_current_liability` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`non_current_liability`)),
+  `ncl_total` varchar(1000) NOT NULL,
+  `current_liability` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`current_liability`)),
+  `cl_total` varchar(1000) NOT NULL,
+  `total_liabilities` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `balance_sheet`
+--
+
+INSERT INTO `balance_sheet` (`id`, `company_id`, `date`, `non_current_asset`, `nc_total`, `current_asset`, `c_total`, `total_assets`, `equity_total`, `non_current_liability`, `ncl_total`, `current_liability`, `cl_total`, `total_liabilities`) VALUES
+(6, '34', '2022-03-09', '[[\"bbfgb\",\"2000\"]]', '2000', '[[\"yjth\",\"1400\"]]', '1400', '3400', '3500', '[[\"ujyuj\",\"7100\"]]', '7100', '[[\"uyjyj\",\"3800\"]]', '3800', '14400'),
+(7, '34', '2022-03-09', '[[\"bbfgb\",\"2000\"],[\"bbfbdf\",\"5000\"],[\"jtjujt\",\"8700\"]]', '15700', '[[\"yjth\",\"1400\"],[\"htyhjy\",\"7500\"],[\"jjytjty\",\"8000\"]]', '16900', '32600', '17600', '[[\"ujyuj\",\"7100\"],[\"ujtyjt\",\"4600\"],[\"jtjttj\",\"7500\"]]', '19200', '[[\"ytmtm\",\"8600\"],[\"fhfghf\",\"7500\"],[\"bnghng\",\"4500\"]]', '20600', '57400'),
+(9, '34', '2022-03-21', '[[\"\",\"50000\"]]', '50000', '[[\"\",\"5000\"]]', '5000', '55000', '50000', '[[\"\",\"2500\"]]', '2500', '[[\"\",\"2500\"]]', '2500', '5000');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `calendar`
+--
+
+CREATE TABLE `calendar` (
+  `id` int(11) NOT NULL,
+  `company_id` varchar(255) NOT NULL,
+  `event_id` varchar(100) NOT NULL,
+  `title` varchar(1000) NOT NULL,
+  `start` date NOT NULL,
+  `end` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `calendar`
+--
+
+INSERT INTO `calendar` (`id`, `company_id`, `event_id`, `title`, `start`, `end`) VALUES
+(244, '34', '7298', 'ihihph', '2022-03-06', '2022-03-11'),
+(245, '34', '8600', 'bbjk', '2022-03-16', '2022-03-19');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `invoice`
+--
+
+CREATE TABLE `invoice` (
+  `id` int(11) NOT NULL,
+  `company_id` varchar(255) NOT NULL,
+  `company_name` varchar(1000) NOT NULL DEFAULT 'Shopilyv',
+  `invoice_id` varchar(1000) NOT NULL,
+  `order_id` varchar(1000) NOT NULL,
+  `order_status` varchar(1000) NOT NULL,
+  `order_date` date NOT NULL,
+  `account` varchar(100) NOT NULL,
+  `payment_due` date NOT NULL,
+  `from_name` varchar(1000) NOT NULL,
+  `from_address` varchar(1000) NOT NULL,
+  `from_phonenumber` varchar(1000) NOT NULL,
+  `from_email` varchar(1000) NOT NULL,
+  `to_name` varchar(1000) NOT NULL,
+  `to_address` varchar(1000) NOT NULL,
+  `to_phonenumber` varchar(1000) NOT NULL,
+  `to_email` varchar(1000) NOT NULL,
+  `item` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`item`)),
+  `sum_subcost` varchar(100) NOT NULL,
+  `vat` float NOT NULL,
+  `grand_total` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `invoice`
+--
+
+INSERT INTO `invoice` (`id`, `company_id`, `company_name`, `invoice_id`, `order_id`, `order_status`, `order_date`, `account`, `payment_due`, `from_name`, `from_address`, `from_phonenumber`, `from_email`, `to_name`, `to_address`, `to_phonenumber`, `to_email`, `item`, `sum_subcost`, `vat`, `grand_total`) VALUES
+(147, '34', 'Shopilyv', 'vsd', 'vdf', 'pending', '2022-03-14', 'vdfvfd', '2022-03-22', 'joel', 'dacvfdv', 'vdfv', 'dsa@gmail.com', 'dan', 'vdfvdf', 'vfdv', 'csd@gmail.com', '[[\"a\",\"b\",\"1\",\"c\"],[\"d\",\"e\",\"2\",\"f\"],[\"g\",\"h\",\"3\",\"i\"]]', 'vdvre', 0, 'bvrtv'),
+(148, '35', 'Shopilyv', 'vsd', 'vdf', 'pending', '2022-03-14', 'vdfvfd', '2022-03-22', 'joel', 'dacvfdv', 'vdfv', 'dsa@gmail.com', 'dan', 'vdfvdf', 'vfdv', 'csd@gmail.com', '[[\"cup\",\"20\",\"1\",\"20\"],[\"broom\",\"40\",\"3\",\"120\"],[\"couch\",\"50\",\"2\",\"100\"],[\"table\",\"70\",\"3\",\"210\"]]', 'vdvre', 0, 'bvrtv'),
+(149, '34', 'Shopilyv', '7875', '4242', 'processing', '2022-03-09', '242424', '2022-03-15', 'joel', '45255', '0720000000', 'jmukiri535@gmail.com', 'dan', '77242', '0710000000', 'dan@gmail.com', '[[\"cups\",\"200\",\"100\",\"20000\"],[\"brooms\",\"400\",\"10\",\"4000\"],[\"chairs\",\"750\",\"20\",\"15000\"],[\"desks\",\"800\",\"20\",\"16000\"]]', '55000', 5, '2750.00'),
+(150, '34', 'Shopilyv', '7875', '4242', 'processing', '2022-03-09', '242424', '2022-03-15', 'joel', '45255', '0720000000', 'jmukiri535@gmail.com', 'dan', '77242', '0710000000', 'dan@gmail.com', '[[\"cups\",\"4500\",\"2\",\"9000\"],[\"desks\",\"7400\",\"10\",\"74000\"],[\"computers\",\"9000\",\"5\",\"45000\"]]', '128000', 16, '148480.00'),
+(151, '34', 'Shopilyv', '', '', 'pending', '0000-00-00', '', '0000-00-00', '', '', '', '', '', '', '', '', '[]', '', 0, '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `leaves`
+--
+
+CREATE TABLE `leaves` (
+  `id` int(255) NOT NULL,
+  `company_id` varchar(255) NOT NULL,
+  `username` varchar(255) DEFAULT NULL,
+  `period` varchar(255) DEFAULT NULL,
+  `startdate` varchar(255) DEFAULT NULL,
+  `enddate` varchar(255) DEFAULT NULL,
+  `reason` varchar(255) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `leaves`
+--
+
+INSERT INTO `leaves` (`id`, `company_id`, `username`, `period`, `startdate`, `enddate`, `reason`, `status`) VALUES
+(1, '34', 'Francis', '10 days', '11.11.2021', '21.11.2021', 'home event', 'Approve'),
+(2, '', 'Evans', '12 days', '12.11.2021', '24.11.2021', 'special personal interest', 'Decline'),
+(3, '', 'Fred', '7 days', '11.12.2021', '18.12.2021', 'Family occation', 'Approve'),
+(4, '', 'Jesse', '14 days', '10.11.2021', '24.11.2021', 'home event', 'Decline'),
+(5, '', 'Stano', '10 days', '12.11.2021', '22.11.2021', 'special personal interest', 'Approve'),
+(6, '', 'Josh', '20 days', '12.11.2021', '1.1.2022', 'Relaxing', 'Decline');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `list`
+--
+
+CREATE TABLE `list` (
+  `id` int(255) NOT NULL,
+  `company_id` varchar(255) NOT NULL,
+  `username` varchar(255) DEFAULT NULL,
+  `phonenumber` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `salary` int(255) DEFAULT NULL,
+  `file` varchar(255) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `size` varchar(255) NOT NULL,
+  `passwordkey` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `list`
+--
+
+INSERT INTO `list` (`id`, `company_id`, `username`, `phonenumber`, `email`, `salary`, `file`, `type`, `size`, `passwordkey`) VALUES
+(87, '', 'francis', '0707234678', 'francis@gmail.com', 41, '', '', '0', '$2y$10$u28R/lCJYMHtYcHrGpwRXOlzFoXBl3ZpUreH4ie4dl.YRtIdMaHgG'),
+(88, '', 'evans', '0710625007', 'evans@gmail.com', 38, '', '', '0', '$2y$10$u28R/lCJYMHtYcHrGpwRXOlzFoXBl3ZpUreH4ie4dl.YRtIdMaHgG'),
+(89, '', 'dan', '0716849963', 'muneneshdan@gmail.com', 46, 'displaypic.jpg', '', '0', '$2y$10$u28R/lCJYMHtYcHrGpwRXOlzFoXBl3ZpUreH4ie4dl.YRtIdMaHgG'),
+(90, '', 'faith', '0794989968', 'faithmumbi@gmail.com', 25, 'service.jpg', 'image/jpeg', '94.6689453125', '$2y$10$XXfMqRGBcPyTGUKWOgDsPOiBl7LnuMKO2JTcHsbyZwBsGIf6V7fxq'),
+(91, '', 'stano', '0794963812', 'stano@gmail.com', 40, 'reason.jpg', 'image/jpeg', '103.9814453125', '$2y$10$u1h6hvvebUrhMp.0CR0IT.04f8KlYYD0r75BqzaXHkkiAeVmH0hHa'),
+(92, '', 'jesse', '0735361728', 'jesse@gmail.com', 30, 'mack.jpg', 'image/jpeg', '105.4921875', '$2y$10$siKAWagM1a5kEDZmKj/THer7Q7VskPopStncRog.6rZhzg3NCK862'),
+(93, '', 'fred', '0116849963', 'fred@gmail.com', 30, 'service.jpg', 'image/jpeg', '94.6689453125', '$2y$10$A1DOAj8nXsCNR.fPTNzae.I8Fb88ZOhQ6wvzzbM2OsuQXL70mvgxm'),
+(94, '', 'faith', '0794989968', 'faithmumbi@gmail.com', 25, 'phone.jpeg', '', '0', '$2y$10$9FvC1DypbtvO8JwFde28WeIxbsPdXifGxvb1/YiEsyG8OknUbBfnW');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `loan`
+--
+
+CREATE TABLE `loan` (
+  `id` int(11) NOT NULL,
+  `company_id` varchar(255) NOT NULL,
+  `username` varchar(255) DEFAULT NULL,
+  `amount` int(255) DEFAULT NULL,
+  `startdate` varchar(255) DEFAULT NULL,
+  `deadline` varchar(255) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `loan`
+--
+
+INSERT INTO `loan` (`id`, `company_id`, `username`, `amount`, `startdate`, `deadline`, `status`) VALUES
+(1, '', 'Francis', 9, '20.11.2021', '20.6.2022', 'Decline'),
+(2, '', 'Evans', 10, '20.11.2021', '20.5.2022', 'decline'),
+(3, '', 'Fred', 20, '20.11.2021', '20.6.2022', 'Approve'),
+(4, '', 'Jesse', 30, '20.12.2021', '18.3.2023', 'Decline'),
+(5, '', 'John', 12, '20.1.2022', '20.12.2022', 'decline'),
+(6, '', 'Josh', 10, '20.11.2021', '20.7.2022', 'Approve');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `password_resets`
+--
+
+CREATE TABLE `password_resets` (
+  `id` int(11) NOT NULL,
+  `company_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `password_resets`
+--
+
+INSERT INTO `password_resets` (`id`, `company_id`, `email`, `token`, `created_at`) VALUES
+(29, '', 'muneneshdan@gmail.com', '058a18c0c5675d8878f97c063ba208534cb14c2f6e62060f4d84dc95839d866f4c7730888631b12dc23031e69643f0f531ec', NULL),
+(30, '', 'muneneshdan@gmail.com', '6fe2f807681ed945d743916ce8543e306ead8aa91d3ee4635268ca2e955dd773799ff879dc2843c7a5b798caa2f259cc063e', NULL),
+(31, '', 'muneneshdan@gmail.com', '44b4117ce0efeb4cdaf7b2f4918034732d3433fd060c67dbddfae04122fc8b2e2fdb5ce626885533eb299e44bb464f8cbaa3', NULL),
+(32, '', 'muneneshdan@gmail.com', 'db7da86d5f5c7bf72ee057aaa60fd8f20d42e8f241ac215690837ee688b94fe9cba62453a01eb83c042ff66b21835ee20c1b', NULL),
+(33, '', 'muneneshdan@gmail.com', 'ead07fab7614aa2902eb62ccd7aa83a5a6696d84d9d8c4e465d107a480a6accffbaf3de6c37d39fea734de7776bf249b741d', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `payroll`
+--
+
+CREATE TABLE `payroll` (
+  `id` int(255) NOT NULL,
+  `company_id` varchar(1000) NOT NULL,
+  `username` varchar(255) DEFAULT NULL,
+  `phonenumber` varchar(255) DEFAULT NULL,
+  `mode_payment` varchar(255) DEFAULT NULL,
+  `accountnumber` varchar(255) DEFAULT NULL,
+  `salary` int(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `payroll`
+--
+
+INSERT INTO `payroll` (`id`, `company_id`, `username`, `phonenumber`, `mode_payment`, `accountnumber`, `salary`) VALUES
+(151, '34', 'gfdgdh', '6456476', 'equity', '543653', 53),
+(158, '34', 'bfb', 'nfnfgn', 'mpesa', '200', 58),
+(159, '34', 'Fredi', '0756848726', '75272752727', '50', 8),
+(160, '34', 'gerhgh', 'hdbhd', 'hdfgn', '20', 8),
+(161, '34', 'jhytuyjrt', 'hrth', 'equity', 'ntyt', 477),
+(162, '34', 'vfvrf', 'rtbtrn', 'equity', 'greer', 20000);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `profit_loss`
+--
+
+CREATE TABLE `profit_loss` (
+  `id` int(11) NOT NULL,
+  `company_id` varchar(255) NOT NULL,
+  `sales` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`sales`)),
+  `total_sales` varchar(1000) NOT NULL,
+  `cost_of_sales` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`cost_of_sales`)),
+  `total_csales` varchar(1000) NOT NULL,
+  `gross_profit` varchar(1000) NOT NULL,
+  `other_income` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`other_income`)),
+  `other_income_total` varchar(1000) NOT NULL,
+  `expenses` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`expenses`)),
+  `expenses_total` varchar(1000) NOT NULL,
+  `net_pre_tax` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `profit_loss`
+--
+
+INSERT INTO `profit_loss` (`id`, `company_id`, `sales`, `total_sales`, `cost_of_sales`, `total_csales`, `gross_profit`, `other_income`, `other_income_total`, `expenses`, `expenses_total`, `net_pre_tax`) VALUES
+(1, '34', '[[\"qcc inventory\",\"50000\"],[\"lareine inventory\",\"2500\"]]', '', '[[\"Carriage Inwards \",\"5000\"],[\"Cost of QCC Inventory\",\"2000\"]]', '', '', '[[\"interest received\",\"5000\"],[\"other income\",\"2000\"]]', '', '[[\"advertising\",\"2000\"],[\"bank charges\",\"15000\"],[\"cleaning\",\"2500\"]]', '', ''),
+(2, '34', '[[\"qcc inventory\",\"50000\"],[\"lareine inventory\",\"2500\"]]', '', '[[\"Carriage Inwards \",\"5000\"],[\"Cost of QCC Inventory\",\"2000\"],[\"cost lareine inventory\",\"7000\"]]', '', '', '[[\"interest received\",\"5000\"],[\"other income\",\"2000\"]]', '', '[[\"advertising\",\"2000\"],[\"bank charges\",\"15000\"],[\"cleaning\",\"2500\"]]', '', ''),
+(3, '36', '[[\"dfjoel\",\"40000\"],[\"trhbrh\",\"5000\"],[\"hrth\",\"2500\"]]', '47500', '[[\"rhbrg\",\"7000\"],[\"mhjmhj\",\"4500\"]]', '11500', '59000', '[[\"gjmg\",\"7000\"]]', '7000', '[[\"mgmg\",\"25000\"],[\"tjyjtj\",\"4000\"],[\"hyrjr\",\"1000\"]]', '30000', '36000'),
+(4, '34', '[[\"\",\"5000\"],[\"\",\"200\"]]', '5200', '[[\"\",\"8400\"],[\"\",\"3500\"]]', '11900', '17100', '[[\"\",\"6000\"]]', '6000', '[[\"\",\"7400\"]]', '7400', '15700'),
+(5, '35', '[[\"\",\"5000\"],[\"\",\"200\"]]', '5200', '[[\"\",\"8400\"],[\"\",\"3500\"]]', '11900', '17100', '[[\"\",\"6000\"]]', '6000', '[[\"\",\"7400\"]]', '7400', '15700');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `settings`
+--
+
+CREATE TABLE `settings` (
+  `id` int(11) NOT NULL,
+  `account_name` varchar(255) NOT NULL,
+  `account_number` varchar(255) NOT NULL,
+  `country` varchar(255) NOT NULL,
+  `currency` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `shift`
+--
+
+CREATE TABLE `shift` (
+  `id` int(255) NOT NULL,
+  `company_id` varchar(255) NOT NULL,
+  `username` varchar(255) DEFAULT NULL,
+  `checkin` varchar(255) DEFAULT NULL,
+  `checkout` varchar(255) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  `progress` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `shift`
+--
+
+INSERT INTO `shift` (`id`, `company_id`, `username`, `checkin`, `checkout`, `status`, `progress`) VALUES
+(1, '34', 'Francis', '8:20am', '6:00pm', 'in progress', '50%'),
+(2, '34', 'Evans', '8:00am', '8:00pm', 'completed', '100%'),
+(3, '34', 'Fred', '8:00am', '6:00pm', 'in progress', '75%'),
+(4, '35', 'Vicky', '8:00am', '5:00pm', 'in progress', '65%'),
+(5, '35', 'Jesse', '8:00am', '7:30pm', 'in progress', '95%'),
+(6, '34', 'john', '8:20am', '7:30pm', 'in progress', '60%');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `transactions`
+--
+
+CREATE TABLE `transactions` (
+  `id` int(11) NOT NULL,
+  `company_id` varchar(255) NOT NULL,
+  `reference` varchar(1000) NOT NULL,
+  `mode_payment` text NOT NULL,
+  `salary` varchar(1000) NOT NULL,
+  `username` varchar(1000) NOT NULL,
+  `order_amount` varchar(1000) NOT NULL,
+  `service_charge` varchar(1000) NOT NULL,
+  `date` date NOT NULL,
+  `status` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `transactions`
+--
+
+INSERT INTO `transactions` (`id`, `company_id`, `reference`, `mode_payment`, `salary`, `username`, `order_amount`, `service_charge`, `date`, `status`) VALUES
+(1, '34', 'S259640651', 'TPG', '5000', 'other', '1000', '5', '2022-02-18', 'Complete'),
+(2, '34', 'S2596', 'mpesa', '5000', 'A N Other', '50', '5', '2022-02-18', 'Incomplete'),
+(3, '34', 'S25964065', 'TPG', '5000', 'other', '1000', '5', '2022-02-18', 'Complete'),
+(4, '35', 'S2596406', 'mpesa', '5000', 'A N Other', '50', '5', '2022-02-24', 'Incomplete'),
+(5, '35', 'S2596408', 'mpesa', '5000', 'A N Other', '50', '5', '2022-02-25', 'Incomplete'),
+(6, '35', 'S259640001', 'TPG', '5000', 'other', '1000', '5', '2022-02-28', 'Complete'),
+(7, '34', 'S2596521', 'mpesa', '5000', 'A N Other', '50', '5', '2022-03-18', 'Incomplete');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `trial_balance`
+--
+
+CREATE TABLE `trial_balance` (
+  `id` int(11) NOT NULL,
+  `company_id` varchar(255) NOT NULL,
+  `trial_balance` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`trial_balance`))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `trial_balance`
+--
+
+INSERT INTO `trial_balance` (`id`, `company_id`, `trial_balance`) VALUES
+(1, '34', '[[\"sale of QCC Inventory \",\"sales\",\"bank account balance\",\"34000\",\"\"],[\"Cost of QCC Inventory \",\"expenses\",\"system account\",\"\",\"31000\"],[\"carriage Inwards\",\"non-current asset\",\"bank account balance\",\"40000\",\"\"],[\"nterest Received \",\"tax\",\"system account\",\"\",\"10000\"],[\"cleaning Costs \",\"current liability\",\"account balance\",\"\",\"2000\"]]');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(255) NOT NULL,
+  `companyname` varchar(255) DEFAULT NULL,
+  `phonenumber` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `worktime` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `employeesnumber` varchar(255) DEFAULT NULL,
+  `industry` varchar(255) DEFAULT NULL,
+  `region` varchar(255) DEFAULT NULL,
+  `username` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `companyname`, `phonenumber`, `email`, `worktime`, `password`, `employeesnumber`, `industry`, `region`, `username`) VALUES
+(13, 'company', 'phone', 'email', '8:00am-8:00pm', '$2y$10$DOSwVkIbNWxoqJc8xzMr8eXD3ht/.8LHQ.pGWnHjsW3vBHFpqBKBm', 'range4', 'industry', 'region', 'name'),
+(15, 'company', 'phone', 'email', '8:00am-8:00pm', '$2y$10$H8nU9tedKva5Kqx47FiYM.VvR4/pAq1hsbj.OzISKlFZgm1RkztMi', 'range4', 'industry', 'region', 'name'),
+(34, 'Keshonect', '0720703796', 'jmk@gmail.com', NULL, '485999f967bdd8f44d62947e4aebe5c6', NULL, 'Electricals', 'Kanairo', 'joel'),
+(36, 'Nduthio', '07111111111', 'rosay@gmail.com', NULL, 'e807f1fcf82d132f9bb018ca6738a19f', NULL, 'Electricals', 'Kanairo', 'ROSE');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `advances`
+--
+ALTER TABLE `advances`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `balance_sheet`
+--
+ALTER TABLE `balance_sheet`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `calendar`
+--
+ALTER TABLE `calendar`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `invoice`
+--
+ALTER TABLE `invoice`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `leaves`
+--
+ALTER TABLE `leaves`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `list`
+--
+ALTER TABLE `list`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `loan`
+--
+ALTER TABLE `loan`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `password_resets`
+--
+ALTER TABLE `password_resets`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `password_resets_email_index` (`email`(191));
+
+--
+-- Indexes for table `payroll`
+--
+ALTER TABLE `payroll`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `profit_loss`
+--
+ALTER TABLE `profit_loss`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `settings`
+--
+ALTER TABLE `settings`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `shift`
+--
+ALTER TABLE `shift`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `transactions`
+--
+ALTER TABLE `transactions`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `trial_balance`
+--
+ALTER TABLE `trial_balance`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `advances`
+--
+ALTER TABLE `advances`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `balance_sheet`
+--
+ALTER TABLE `balance_sheet`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `calendar`
+--
+ALTER TABLE `calendar`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=246;
+
+--
+-- AUTO_INCREMENT for table `invoice`
+--
+ALTER TABLE `invoice`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
+
+--
+-- AUTO_INCREMENT for table `leaves`
+--
+ALTER TABLE `leaves`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `list`
+--
+ALTER TABLE `list`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
+
+--
+-- AUTO_INCREMENT for table `loan`
+--
+ALTER TABLE `loan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `password_resets`
+--
+ALTER TABLE `password_resets`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+
+--
+-- AUTO_INCREMENT for table `payroll`
+--
+ALTER TABLE `payroll`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=163;
+
+--
+-- AUTO_INCREMENT for table `profit_loss`
+--
+ALTER TABLE `profit_loss`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `settings`
+--
+ALTER TABLE `settings`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `shift`
+--
+ALTER TABLE `shift`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `transactions`
+--
+ALTER TABLE `transactions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `trial_balance`
+--
+ALTER TABLE `trial_balance`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

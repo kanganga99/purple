@@ -1,0 +1,81 @@
+body{
+    background-position: center;
+    background-size: cover; 
+    background-color: rgb(243, 243, 243);
+}
+.container{
+    width: 600px;
+    height: 70vh;
+    margin: 8% auto;
+    background:  #8ea394;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+} 
+.container section{
+    width: 400px;
+    position: absolute;
+    top: 100px;
+    left: 80px;
+    transition: 0.5s;
+} 
+::placeholder{
+    color: #999;
+}
+.btn-box{
+    width: 100%;
+    margin-left: 3%;
+    margin-right: 15%;
+    text-align: center;
+    display:inline-flex;
+}
+section button{
+    width: 110px;
+     height: 35px;    
+    margin: 0 10px;
+    background-color: #739c7e;
+    border-radius: 30px;
+    border: 0;
+    outline: none;
+    color: blue;
+    cursor: pointer;
+}
+#Form2{
+    left: 850px;
+}
+/* #Form3{
+    left: 850px;
+} */
+.step-row{
+width: 450px;
+height: 40px;
+margin: 0 auto;
+display: flex;
+align-items: centre;
+box-shadow: 0 0px 4px 0px #000;
+position: relative;
+}
+.step-col{
+    width: 320px;
+    text-align: centre;
+    color: #333;
+    position: relative;
+}
+#progress{
+     position: absolute;
+     height: 100%;
+     width: 200px;
+     background: #739c7e;
+     transition: 1s;
+} 
+#progress::after{
+    content: '';
+    height: 0;
+    width: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    position: absolute;
+    right: -20px;
+    top: 0;
+    border-left: 20px solid #739c7e;
+} 
