@@ -1,19 +1,19 @@
 <?php
 include '../includes/header.php';
 $companyid = $_SESSION['companyid'];
+
 if (isset($_GET['msg'])) {
-  $msg = $_GET['msg'];
-  echo '  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    $msg = $_GET['msg'];
+    echo '  <div class="alert alert-warning alert-dismissible fade show" role="alert">
     ' . $msg . '
 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>';
 }
 ?>
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-  <script src="../assets/js/main.js"></script>
+  <!-- <script src="../assets/js/main.js"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -21,11 +21,9 @@ if (isset($_GET['msg'])) {
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
 </head>
-<body class="sb-nav-fixed">
-  </div>
-  <div id="layoutSidenav_content">
-    <main>
-      <div class="container-fluid px-4">
+<body>
+      <div class="main-panel">
+        <div class="content-wrapper">
         <div class="row">
           <div class="card mb-4">
             <div class="card-body">
@@ -115,8 +113,8 @@ if (isset($_GET['msg'])) {
                 <td><?php echo $row['classname'] ?></td>
                 <td><?php echo $row['amount'] ?></td>
                 <td>
-                  <a data-bs-toggle="modal" data-bs-target="#edit_Modal<?php echo $row['id'] ?>"><i class="fa-solid fa-pen fs-5 "></i></a>
-                  <a href="delete_fee.php?id=<?php echo $row['id'] ?>" class="link-dark" title="delete" class="delete" onclick="return confirm('Are you sure you want to delete this fee particular')"><i class="fa-solid fa-trash fs-5 "></i></a>
+                  <a data-bs-toggle="modal" data-bs-target="#edit_Modal<?php echo $row['id'] ?>"><i class="mdi mdi-pencil"></i></a>
+                  <a href="delete_fee.php?id=<?php echo $row['id'] ?>" class="link-dark" title="delete" class="delete" onclick="return confirm('Are you sure you want to delete this fee particular')"><i class="mdi mdi-trash-can-outline"></i></a>
                   <form action="edit_fee.php" method="post">
                     <div class="modal fade" id="edit_Modal<?php echo $row['id'] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                       <div class="modal-dialog">
@@ -171,17 +169,20 @@ if (isset($_GET['msg'])) {
             $("#fees").DataTable();
           </script>
         </table>
-        <style>
-          table {
-            counter-reset: none;
-          }
+        </div>
+      </div>
+      <style>
+    table {
+      counter-reset: none;
+    }
 
-          tr {
-            counter-increment: rowNumber;
-          }
+    tr {
+      counter-increment: rowNumber;
+    }
 
-          table tr td:first-child::before {
-            content: counter(rowNumber);
-          }
-        </style>
+    table tr td:first-child::before {
+      content: counter(rowNumber);
+    }
+  </style>
 </body>
+</html>
