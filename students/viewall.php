@@ -10,6 +10,7 @@ if (isset($_POST['insert_row'])) {
 }
 ?>
 <!DOCTYPE html>
+
 <head>
   <link href="../assets//css/bootstrap.min.css/bootstrap2.min.css" rel="stylesheet">
   <link href="../assets/css/bootstrap.min.css/bootstrap.min.css" rel="stylesheet">
@@ -31,16 +32,10 @@ if (isset($_POST['insert_row'])) {
   }
 </style>
 
-<body class="sb-nav-fixed">
-  </div>
-  <div id="layoutSidenav_content">
-    <main>
+<body>
+  <div class="main-panel">
+    <div class="content-wrapper">
       <div class="container-fluid px-4">
-        <h3 class="mt-4"></h3>
-        <div class="row">
-          <div class="container">
-          </div>
-        </div>
         <?php
         include "../config/db.php";
         $id = $_GET['id'];
@@ -62,14 +57,12 @@ if (isset($_POST['insert_row'])) {
             <b class="exp">Phonenumber: </b><?php echo $row['phonenumber'] ?><br></b>
             <!-- <b> Uploads<a href="../assets/images/</?php echo $upload[3]; ?>" target="_blank" class="text-primary "><i class="fa fa-download"></i></?php echo substr($upload[3], 0, 7); ?>...</a></b> -->
             <b> Uploads<a href="../assets/images/<?php echo $upload[3]; ?>" target="_blank" class="text-primary "><i class="fa fa-download"></i><?php echo substr($upload[3], 0, 7); ?>...</a></b>
-          
+
           </div>
           <br>
         <?php
         }
         ?>
-        </tbody>
-        </table>
         <table class="table " id="table">
           <thead>
             <tr class="tt">
@@ -93,7 +86,7 @@ if (isset($_POST['insert_row'])) {
                 <td></td>
                 <td><?php echo $row['remarks'] ?></td>
                 <td><?php echo $row['date_created'] ?></td>
-                   <td><?php echo $row['amount']?></td>
+                <td><?php echo $row['amount'] ?></td>
               </tr>
             <?php
             }
@@ -126,10 +119,9 @@ if (isset($_POST['insert_row'])) {
           </tbody>
         </table>
       </div>
+    </div>
   </div>
   </div>
-  </div>
-  </main>
   </div>
   </div>
   <style>

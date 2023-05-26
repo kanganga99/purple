@@ -9,14 +9,14 @@ if (isset($_SESSION['companyid'])) { ?>
     <link rel="stylesheet" href="../assets/purple/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../assets/purple/vendors/css/vendor.bundle.base.css">
     <link rel="stylesheet" href="../assets/purple/css/style.css">
-    <!-- <link rel="shortcut icon" href="../assets/purple/images/favicon.ico" /> -->
     </head>
+
     <body>
         <div class="container-scroller">
             <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
                 <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                    <a class="navbar-brand brand-logo" href="index.html"><img src="../assets/purple/images/logo.svg" alt="logo" /></a>
-                    <a class="navbar-brand brand-logo-mini" href="index.html"><img src="../assets/purple/images/logo-mini.svg" alt="logo" /></a>
+                    <a class="navbar-brand brand-logo" href="../home/"><img src="../assets/purple/images/logo.svg" alt="logo" /></a>
+                    <a class="navbar-brand brand-logo-mini" href="../home/"><img src="../assets/purple/images/logo-mini.svg" alt="logo" /></a>
                 </div>
                 <div class="navbar-menu-wrapper d-flex align-items-stretch">
                     <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -103,14 +103,14 @@ if (isset($_SESSION['companyid'])) { ?>
                         </li>
                     </ul>
                 </nav>
-        <script src="../assets/purple/vendors/js/vendor.bundle.base.js"></script>
-        <script src="../assets/purple/vendors/chart.js/Chart.min.js"></script>
-        <script src="../assets/purple/js/jquery.cookie.js" type="text/javascript"></script>
-        <script src="../assets/purple/js/off-canvas.js"></script>
-        <script src="../assets/purple/js/hoverable-collapse.js"></script>
-        <script src="../assets/purple/js/misc.js"></script>
-        <script src="../assets/purple/js/dashboard.js"></script>
-        <script src="../assets/purple/js/todolist.js"></script>
+                <script src="../assets/purple/vendors/js/vendor.bundle.base.js"></script>
+                <script src="../assets/purple/vendors/chart.js/Chart.min.js"></script>
+                <script src="../assets/purple/js/jquery.cookie.js" type="text/javascript"></script>
+                <script src="../assets/purple/js/off-canvas.js"></script>
+                <script src="../assets/purple/js/hoverable-collapse.js"></script>
+                <script src="../assets/purple/js/misc.js"></script>
+                <script src="../assets/purple/js/dashboard.js"></script>
+                <script src="../assets/purple/js/todolist.js"></script>
     </body>
 <?php
 } else {

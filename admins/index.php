@@ -3,14 +3,15 @@ include '../includes/header.php';
 $companyid = $_SESSION['companyid'];
 
 if (isset($_GET['msg'])) {
-    $msg = $_GET['msg'];
-    echo '  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+  $msg = $_GET['msg'];
+  echo '  <div class="alert alert-warning alert-dismissible fade show" role="alert">
     ' . $msg . '
 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>';
 }
 ?>
 <html lang="en">
+
 <head>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
   <!-- <script src="../assets/js/main.js"></script> -->
@@ -21,11 +22,13 @@ if (isset($_GET['msg'])) {
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
 </head>
+
 <body>
-      <div class="main-panel">
-        <div class="content-wrapper">
-        <div class="row">
-        <div class="card mb-2">
+  <div class="main-panel">
+    <div class="content-wrapper">
+      <h4 class="mt-4">Admins</h4>
+      <div class="row">
+        <div class="card mb-4">
           <div class="card-body">
             <div class="container">
               <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
@@ -69,42 +72,40 @@ if (isset($_GET['msg'])) {
             </div>
           </div>
         </div>
-      </div>
-      <table class="table tb" id="admins">
-        <thead>
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Email</th>
-            <th scope="col">Phonenumber</th>
-            <th scope="col">Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php
-          $query = "SELECT * FROM admins WHERE companyid = '$companyid' ORDER BY id DESC LIMIT 500";
-          $result = mysqli_query($conn, $query);
-          while ($row = mysqli_fetch_assoc($result)) {
-            $id_no = $row['id'];
-          ?>
+        <table class="table tb" id="admins">
+          <thead>
             <tr>
-              <td></td>
-              <td><?php echo $row['email'] ?></td>
-              <td><?php echo $row['phonenumber'] ?></td>
-              <td>
-                <a href="delete_admin.php?id=<?php echo $row['id'] ?>" class="link-dark" title="delete" class="delete" onclick="return confirm('Are you sure you want to delete this admin')"><i class="mdi mdi-trash-can-outline"></i></a>
-              </td>
+              <th scope="col">ID</th>
+              <th scope="col">Email</th>
+              <th scope="col">Phonenumber</th>
+              <th scope="col">Action</th>
             </tr>
-          <?php
-          }
-          ?>
-        </tbody>
-        <script>
-          $("#admins").DataTable();
-        </script>
-      </table>
-        </div>
+          </thead>
+          <tbody>
+            <?php
+            $query = "SELECT * FROM admins WHERE companyid = '$companyid' ORDER BY id DESC LIMIT 500";
+            $result = mysqli_query($conn, $query);
+            while ($row = mysqli_fetch_assoc($result)) {
+              $id_no = $row['id'];
+            ?>
+              <tr>
+                <td></td>
+                <td><?php echo $row['email'] ?></td>
+                <td><?php echo $row['phonenumber'] ?></td>
+                <td>
+                  <a href="delete_admin.php?id=<?php echo $row['id'] ?>" class="link-dark" title="delete" class="delete" onclick="return confirm('Are you sure you want to delete this admin')"><i class="mdi mdi-trash-can-outline"></i></a>
+                  <form action="" method="post">
+                  </form>
+                <?php } ?>
+          </tbody>
+          <script>
+            $("#admins").DataTable();
+          </script>
+        </table>
       </div>
-      <style>
+    </div>
+  </div>
+  <style>
     table {
       counter-reset: none;
     }
@@ -118,4 +119,5 @@ if (isset($_GET['msg'])) {
     }
   </style>
 </body>
+
 </html>

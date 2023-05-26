@@ -24,6 +24,7 @@ if (isset($_GET['msg'])) {
 <body>
       <div class="main-panel">
         <div class="content-wrapper">
+        <h4 class="mt-4">Fees</h4>
         <div class="row">
           <div class="card mb-4">
             <div class="card-body">

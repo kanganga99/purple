@@ -19,10 +19,9 @@ if (isset($_GET['msg'])) {
   <script src="../assets/js/chart.min.js"></script>
   <script src="../assets/js/datatables.js"></script>
 </head>
-<body class="sb-nav-fixed">
-  </div>
-  <div id="layoutSidenav_content">
-    <main>
+<body>
+  <div class="main-panel">
+    <div class="content-wrapper">
       <br>
       <br>
       <div class="container-fluid px-4">
@@ -74,7 +73,6 @@ if (isset($_GET['msg'])) {
   </div>
   </div>
   </div>
-  </main>
   </div>
   </div>
   <style>
