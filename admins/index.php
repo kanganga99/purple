@@ -105,6 +105,7 @@ if (isset($_GET['msg'])) {
       </div>
     </div>
   </div>
+  <!-- </div> -->
   <style>
     table {
       counter-reset: none;

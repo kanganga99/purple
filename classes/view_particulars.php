@@ -11,7 +11,6 @@ if (isset($_GET['msg'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
   <script src="../assets/js/main.js"></script>
@@ -22,7 +21,6 @@ if (isset($_GET['msg'])) {
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
 </head>
-
 <body>
   <div class="main-panel">
     <div class="content-wrapper">
@@ -42,7 +40,6 @@ if (isset($_GET['msg'])) {
         <div class="myDiv">
           <button> Total Fee: <?php echo $row['total_amount'] ?></button>
         </div>
-
       <?php } ?>
       <div class="container-fluid px-4">
         <table class="table tb" id="fees">
@@ -69,11 +66,11 @@ if (isset($_GET['msg'])) {
                   <!-- <a data-bs-toggle="modal" data-bs-target="#edit_Modal</?php echo $row['class_id'] ?>"><i class="fa-solid fa-pen fs-5 "></i></a> -->
                   <!-- <a href="delete_fee.php?id=<?php echo $row['id'] ?>" class="link-dark" title="delete" class="delete" onclick="return confirm('Are you sure you want to delete this fee')"><i class="fa-solid fa-trash fs-5 "></i></a> -->
                   <a href="delete_fee.php?id=<?php echo $row['id'] ?>" class="link-dark" title="delete" class="delete" onclick="return confirm('Are you sure you want to delete this fee')"><i class="mdi mdi-trash-can-outline"></i></a>
-                </td>
-              </tr>
-            <?php
-            }
-            ?>
+                  <form action="" method="post">
+                  </form>
+                <?php
+                  }
+                ?>
           </tbody>
           <script>
             $("#fees").DataTable();
@@ -82,19 +79,19 @@ if (isset($_GET['msg'])) {
       </div>
     </div>
   </div>
-  </body>
-  <style>
-    table {
-      counter-reset: none;
-    }
+</body>
+<style>
+  table {
+    counter-reset: none;
+  }
 
-    tr {
-      counter-increment: rowNumber;
-    }
+  tr {
+    counter-increment: rowNumber;
+  }
 
-    table tr td:first-child::before {
-      content: counter(rowNumber);
-    }
-  </style>
+  table tr td:first-child::before {
+    content: counter(rowNumber);
+  }
+</style>
 
 </html>

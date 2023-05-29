@@ -24,18 +24,19 @@ if (!isset($_SESSION['companyid'])) {
 ?>
 	<!DOCTYPE html>
 	<html>
+
 	<head>
 		<title>Login</title>
 		<link href="assets/css/bootstrap.min.css/bootstrap.min.css" rel="stylesheet">
 		<link href="page/style.css" rel="stylesheet">
 	</head>
-	<style>
+	<!-- <style>
 		.bing {
-			background-color: #d1e0e0;
+			background-color: #e0d1e0;
 		}
-	</style>
+	</style> -->
 	<body>
-		<div class="bing">
+		<div >
 			<div class="container">
 				<form action="" method="POST" class="login-email">
 					<p>To login, enter your registered username and password</p>

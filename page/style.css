@@ -10,7 +10,7 @@
 body {
     width: 100%;
     min-height: 100vh;
-    background-image: linear-gradient(#b3b5b4, #b3b5b4), url(bg.jpg);
+    /* background-image: linear-gradient(#b3b5b4, #b3b5b4), url(bg.jpg); */
     background-position: center;
     background-size: cover;
     display: flex;

@@ -10,7 +10,6 @@ if (isset($_SESSION['companyid'])) { ?>
     <link rel="stylesheet" href="../assets/purple/vendors/css/vendor.bundle.base.css">
     <link rel="stylesheet" href="../assets/purple/css/style.css">
     </head>
-
     <body>
         <div class="container-scroller">
             <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
@@ -36,19 +35,19 @@ if (isset($_SESSION['companyid'])) { ?>
                         <li class="nav-item nav-profile dropdown">
                             <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                                 <div class="nav-profile-img">
-                                    <img src="../assets/purple/images/faces/face1.jpg" alt="image">
+                                    <img src="../assets/purple/images/faces/avatar.PNG" alt="image">
                                     <span class="availability-status online"></span>
                                 </div>
                                 <div class="nav-profile-text">
-                                    <p class="mb-1 text-black">David Greymaax</p>
+                                    <p class="mb-1 text-black">Admin</p>
                                 </div>
                             </a>
                             <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
                                 <a class="dropdown-item" href="#">
                                     <i class="mdi mdi-cached me-2 text-success"></i> Activity Log </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">
-                                    <i class="mdi mdi-logout me-2 text-primary"></i> Signout </a>
+                                <a class="dropdown-item" href="../home/logout.php">
+                                    <i class=""></i> Signout </a>
                             </div>
                         </li>
                         <li class="nav-item d-none d-lg-block full-screen-link">
@@ -111,6 +110,8 @@ if (isset($_SESSION['companyid'])) { ?>
                 <script src="../assets/purple/js/misc.js"></script>
                 <script src="../assets/purple/js/dashboard.js"></script>
                 <script src="../assets/purple/js/todolist.js"></script>
+            <!-- </div> -->
+        <!-- </div> -->
     </body>
 <?php
 } else {

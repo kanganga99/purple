@@ -58,9 +58,10 @@ if (isset($_GET['msg'])) {
                 <td><?php echo $row['student_id'] ?></td>
                 <td><?php echo $row['phonenumber'] ?></td>
                 <td><?php echo $row['religion'] ?></td>
-                
-                <td><a href="../assets/images/<?php echo $upload[3]; ?>" target="_blank" class="text-primary "><i class="fa fa-download"></i><?php echo substr($upload[3], 0, 7);  ?>...</a></td>
-              </tr>
+                <td>
+                      <a href="../assets/images/<?php echo $upload[3]; ?>" target="_blank" class="text-primary "><i class="fa fa-download"></i><?php echo substr($upload[3], 0, 7);  ?>...</a>
+                      <form action="" method="post">
+                    </form>
             <?php
             }
             ?>

@@ -16,7 +16,7 @@ if(isset($_POST['submit'])){
   $sql ="INSERT INTO classes(id,classname,`level`,companyid) VALUES (NULL,'$classname','$level','$companyid')";
      $result = mysqli_query($conn, $sql);
      if($result){
-         header("Location: index.php?msg=New class added");
+         header("Location: index.php");
      }                              
      else{
          echo "Failed:" . mysqli_error($conn);
