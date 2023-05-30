@@ -56,7 +56,7 @@ $month = isset($_GET['month']) ? $_GET['month'] : date('Y-m');
                                     </tr>
                                 <?php
                                 endwhile;
-                                else :
+                            else :
                                 ?>
                                 <tr>
                                     <th class="text-center" colspan="7">No Data.</th>
@@ -103,7 +103,7 @@ $month = isset($_GET['month']) ? $_GET['month'] : date('Y-m');
         .text-center {
             text-align: center
         }
-        
+
         .text-right {
             text-align: right
         }
@@ -127,4 +127,3 @@ $month = isset($_GET['month']) ? $_GET['month'] : date('Y-m');
         }, 500);
     })
 </script>
-

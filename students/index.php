@@ -150,19 +150,16 @@ if (isset($_GET['msg'])) {
       </div>
     </div>
   </div>
-      <style>
-        table {
-          counter-reset: none;
-        }
-
-        tr {
-          counter-increment: rowNumber;
-        }
-
-        table tr td:first-child::before {
-          content: counter(rowNumber);
-        }
-      </style>
+  <style>
+    table {
+      counter-reset: none;
+    }
+    tr {
+      counter-increment: rowNumber;
+    }
+    table tr td:first-child::before {
+      content: counter(rowNumber);
+    }
+  </style>
 </body>
-
 </html>

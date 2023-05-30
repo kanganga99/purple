@@ -103,15 +103,13 @@ if (isset($_SESSION['companyid'])) { ?>
                     </ul>
                 </nav>
                 <script src="../assets/purple/vendors/js/vendor.bundle.base.js"></script>
-                <script src="../assets/purple/vendors/chart.js/Chart.min.js"></script>
-                <script src="../assets/purple/js/jquery.cookie.js" type="text/javascript"></script>
                 <script src="../assets/purple/js/off-canvas.js"></script>
                 <script src="../assets/purple/js/hoverable-collapse.js"></script>
                 <script src="../assets/purple/js/misc.js"></script>
+                <script src="../assets/purple/vendors/chart.js/Chart.min.js"></script>
+                <script src="../assets/purple/js/jquery.cookie.js" type="text/javascript"></script>
                 <script src="../assets/purple/js/dashboard.js"></script>
                 <script src="../assets/purple/js/todolist.js"></script>
-            <!-- </div> -->
-        <!-- </div> -->
     </body>
 <?php
 } else {

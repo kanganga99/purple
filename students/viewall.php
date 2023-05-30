@@ -56,8 +56,7 @@ if (isset($_POST['insert_row'])) {
             <b>Classname</b> <?php echo $row['classname'] ?><br>
             <b class="exp">Phonenumber: </b><?php echo $row['phonenumber'] ?><br></b>
             <!-- <b> Uploads<a href="../assets/images/</?php echo $upload[3]; ?>" target="_blank" class="text-primary "><i class="fa fa-download"></i></?php echo substr($upload[3], 0, 7); ?>...</a></b> -->
-            <b> Uploads<a href="../assets/images/<?php echo $upload[3]; ?>" target="_blank" class="text-primary "><i class="fa fa-download"></i><?php echo substr($upload[3], 0, 7); ?>...</a></b>
-
+            <b> Uploads:<a href="../assets/images/<?php echo $upload[3]; ?>" target="_blank" class="text-primary "><i class="fa fa-download"></i><?php echo substr($upload[3], 0, 7); ?>...</a></b>
           </div>
           <br>
         <?php
