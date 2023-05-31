@@ -14,8 +14,8 @@ if (isset($_SESSION['companyid'])) { ?>
         <div class="container-scroller">
             <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
                 <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                    <a class="navbar-brand brand-logo" href="../home/"><img src="../assets/purple/images/logo.svg" alt="logo" /></a>
-                    <a class="navbar-brand brand-logo-mini" href="../home/"><img src="../assets/purple/images/logo-mini.svg" alt="logo" /></a>
+                    <a href="../home/"><img src="../assets/purple/images/logo1.PNG" /></a>
+                    <!-- <a class="navbar-brand brand-logo-mini" href="../home/"><img src="../assets/purple/images/logo-mini.svg" alt="logo" /></a> -->
                 </div>
                 <div class="navbar-menu-wrapper d-flex align-items-stretch">
                     <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -43,11 +43,12 @@ if (isset($_SESSION['companyid'])) { ?>
                                 </div>
                             </a>
                             <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
-                                <a class="dropdown-item" href="#">
-                                    <i class="mdi mdi-cached me-2 text-success"></i> Activity Log </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="../home/logout.php">
-                                    <i class=""></i> Signout </a>
+                                <!-- <a class="dropdown-item" href="#">
+                                    <i class="mdi mdi-cached me-2 text-success"></i> Activity Log </a> -->
+                                <!-- <div class="dropdown-divider"></div> -->
+                                <a class="dropdown-item" href="../home/logout.php" style="background-color:#ede8f0">
+                                    <i class="mdi mdi-logout"></i> Signout </a>
+                                <!-- <li style="background-color:#28becd;"><a href="../logout.php" class="dropdown-item"><i class='fa fa-sign-out'></i> Logout</a></li> -->
                             </div>
                         </li>
                         <li class="nav-item d-none d-lg-block full-screen-link">

@@ -30,11 +30,12 @@ if (!isset($_SESSION['companyid'])) {
 		<link href="assets/css/bootstrap.min.css/bootstrap.min.css" rel="stylesheet">
 		<link href="page/style.css" rel="stylesheet">
 	</head>
-	<!-- <style>
+	<style>
 		.bing {
-			background-color: #e0d1e0;
+			background-color:  #ede8f0;
+			/* blue #0000FF */
 		}
-	</style> -->
+	</style>
 	<body>
 		<div >
 			<div class="container">

@@ -7,7 +7,7 @@ body{
     width: 600px;
     height: 70vh;
     margin: 8% auto;
-    background:  #ac8ca4;
+    background:  #ede8f0;
     border-radius: 5px;
     position: relative;
     overflow: hidden;
@@ -33,11 +33,11 @@ section button{
     width: 110px;
      height: 35px;    
     margin: 0 10px;
-    background-color: #739c7e;
+    background-color: #C264FF;
     border-radius: 30px;
     border: 0;
     outline: none;
-    color: blue;
+    color: white;
     cursor: pointer;
 }
 #Form2{
@@ -65,7 +65,7 @@ position: relative;
      position: absolute;
      height: 100%;
      width: 200px;
-     background: #ac8ca4;
+     background: #978593;
      transition: 1s;
 } 
 #progress::after{
@@ -77,5 +77,5 @@ position: relative;
     position: absolute;
     right: -20px;
     top: 0;
-    border-left: 20px solid #739c7e;
+    border-left: 20px solid #978593;
 } 

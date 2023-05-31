@@ -10,7 +10,6 @@ if (isset($_POST['insert_row'])) {
 }
 ?>
 <!DOCTYPE html>
-
 <head>
   <link href="../assets//css/bootstrap.min.css/bootstrap2.min.css" rel="stylesheet">
   <link href="../assets/css/bootstrap.min.css/bootstrap.min.css" rel="stylesheet">
@@ -31,7 +30,6 @@ if (isset($_POST['insert_row'])) {
     color: #fff;
   }
 </style>
-
 <body>
   <div class="main-panel">
     <div class="content-wrapper">
@@ -78,8 +76,6 @@ if (isset($_POST['insert_row'])) {
             $query = mysqli_query($conn, "SELECT students.student_id,transactions.remarks, transactions.amount,transactions.date_created FROM transactions INNER JOIN students
              ON(transactions.student_id=students.student_id)WHERE students.student_id=$student_id");
             while ($row = mysqli_fetch_assoc($query)) {
-
-              // print_r($row);
             ?>
               <tr class="tt">
                 <td></td>
@@ -147,8 +143,6 @@ if (isset($_POST['insert_row'])) {
       }
     }
   </style>
-
-
   <script>
     function PrintDoc(btn) {
       $(btn).hide();
@@ -160,12 +154,9 @@ if (isset($_POST['insert_row'])) {
       $(".tt th:nth-child(1)").hide()
       $(".tt th:nth-child(3)").hide()
 
-
       $(".tt td:nth-child(2)").hide()
       $(".tt td:nth-child(1)").hide()
       $(".tt td:nth-child(3)").hide()
-
-
 
       window.print();
 
@@ -173,9 +164,6 @@ if (isset($_POST['insert_row'])) {
 
       $(".hh").show();
       $(".hh").show();
-
-
-
 
       location.reload();
     }
