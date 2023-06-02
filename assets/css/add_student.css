@@ -43,9 +43,7 @@ section button{
 #Form2{
     left: 850px;
 }
-/* #Form3{
-    left: 850px;
-} */
+
 .step-row{
 width: 450px;
 height: 40px;
@@ -65,7 +63,7 @@ position: relative;
      position: absolute;
      height: 100%;
      width: 200px;
-     background: #978593;
+     background: #C264FF;
      transition: 1s;
 } 
 #progress::after{
@@ -77,5 +75,5 @@ position: relative;
     position: absolute;
     right: -20px;
     top: 0;
-    border-left: 20px solid #978593;
+    border-left: 20px solid #C264FF;
 } 
