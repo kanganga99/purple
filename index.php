@@ -24,7 +24,6 @@ if (!isset($_SESSION['companyid'])) {
 ?>
 	<!DOCTYPE html>
 	<html>
-
 	<head>
 		<title>Login</title>
 		<link href="assets/css/bootstrap.min.css/bootstrap.min.css" rel="stylesheet">

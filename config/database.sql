@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 03, 2023 at 07:37 AM
+-- Generation Time: Jun 09, 2023 at 07:43 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -41,7 +41,8 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`id`, `companyname`, `phonenumber`, `email`, `password`, `companyid`) VALUES
-(1, 'testing', '0702345678', 'testing@gmail.com', '9ad574806427070b94735f216e9abdc1', '517951');
+(1, 'testing', '0702345678', 'testing@gmail.com', '9ad574806427070b94735f216e9abdc1', '517951'),
+(13, '', '34231207', 'purple@gmail.com', '$2y$10$AjVgDfoW3yj7EcM/Yj7pAe30eK/DhiS4Qih0ycxFWP2rY3vrZ2uz6', '517951');
 
 -- --------------------------------------------------------
 
@@ -63,7 +64,8 @@ CREATE TABLE `classes` (
 INSERT INTO `classes` (`id`, `classname`, `level`, `companyid`) VALUES
 (7, 'Three West', 'FirstTerm', '517951'),
 (8, 'Four North', 'Third Term', '517951'),
-(9, 'Eight South', '2nd Term', '517951');
+(9, 'Eight South', '2nd Term', '517951'),
+(14, 'Four West', '34', '517951');
 
 -- --------------------------------------------------------
 
@@ -84,7 +86,8 @@ CREATE TABLE `companies` (
 --
 
 INSERT INTO `companies` (`id`, `companyname`, `companyid`, `phonenumber`, `created_at`) VALUES
-(7, 'testing', '517951', '0702345678', '2023-03-27 14:49:58');
+(7, 'testing', '517951', '0702345678', '2023-03-27 14:49:58'),
+(8, 'bottle', '441283', '3456', '2023-05-03 10:55:45');
 
 -- --------------------------------------------------------
 
@@ -110,7 +113,8 @@ INSERT INTO `fees` (`id`, `class_id`, `description`, `amount`, `classname`, `com
 (2, '8', 'dede', '600', 'Four North', '517951'),
 (3, '8', 'ddede', '4500', 'Four North', '517951'),
 (4, '7', 'dental clinic', '450', 'Three West', '517951'),
-(5, '9', 'reasdr', '590', 'Eight South', '517951');
+(5, '9', 'reasdr', '590', 'Eight South', '517951'),
+(6, '7', 'transport', '7000', 'Three West', '517951');
 
 -- --------------------------------------------------------
 
@@ -211,25 +215,25 @@ ALTER TABLE `transactions`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id` int(128) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(128) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `classes`
 --
 ALTER TABLE `classes`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `companies`
 --
 ALTER TABLE `companies`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `fees`
 --
 ALTER TABLE `fees`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `students`
@@ -241,7 +245,7 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT for table `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

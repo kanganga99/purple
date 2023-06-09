@@ -2,7 +2,6 @@
 include "../includes/header.php";
 ?>
 <?php
-// include "../config/db.php";
 $month = isset($_GET['month']) ? $_GET['month'] : date('Y-m');
 ?>
 <div class="main-panel">
@@ -118,7 +117,7 @@ $month = isset($_GET['month']) ? $_GET['month'] : date('Y-m');
 </noscript>
 <script>
     $('#month').change(function() {
-        location.replace('month=' + $(this).val())
+        location.replace('index&month=' + $(this).val())
     })
     $('#print').click(function() {
         var _c = $('#report-list').clone();

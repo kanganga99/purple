@@ -46,43 +46,41 @@ if (!isset($_SESSION['companyname']) && !isset($_SESSION['id'])) {
 		}
 	}
 ?>
-
-
-	<!-- <!DOCTYPE html>
-	<html> -->
-	<!-- <head>
+	<!DOCTYPE html>
+	<html>
+	<head>
 		<title>Register</title>
 		<link href="assets/css/bootstrap.min.css/bootstrap.min.css" rel="stylesheet">
 		<link href="page/style.css" rel="stylesheet">
-	</head> -->
-	<!-- <body>
+	</head>
+	<body>
 		<div class="container">
 			<p>Create an account to get started</p>
-			</?php if (isset($_GET['error'])) { ?>
+			<?php if (isset($_GET['error'])) { ?>
 				<div class="alert alert-danger" role="alert">
-					</?= $_GET['error'] ?>
+					<?= $_GET['error'] ?>
 				</div>
-			</?php } ?>
-			</?php if (isset($_GET['success'])) { ?>
+			<?php } ?>
+			<?php if (isset($_GET['success'])) { ?>
 				<div class="alert alert-success" role="alert">
-					</?= $_GET['success'] ?>
+					<?= $_GET['success'] ?>
 				</div>
-			</?php } ?>
+			<?php } ?>
 			<form action="" method="POST" class="login-email">
 				<div class="input-group">
-					<input type="text" placeholder="Company name" name="companyname" value="</?php echo $companyname1; ?>" required>
+					<input type="text" placeholder="Company name" name="companyname" value="<?php echo $companyname1; ?>" required>
 				</div>
 				<div class="input-group">
-					<input type="email" placeholder="Email address" name="email" value="</?php echo $email; ?>" required>
+					<input type="email" placeholder="Email address" name="email" value="<?php echo $email; ?>" required>
 				</div>
 				<div class="input-group">
-					<input type="text" placeholder="phonenumber" name="phonenumber" value="</?php echo $phonenumber; ?>" required>
+					<input type="text" placeholder="phonenumber" name="phonenumber" value="<?php echo $phonenumber; ?>" required>
 				</div>
 				<div class="input-group">
-					<input type="password" placeholder="Password" name="password" value="</?php echo $_POST['password']; ?>" required>
+					<input type="password" placeholder="Password" name="password" value="<?php echo $_POST['password']; ?>" required>
 				</div>
 				<div class="input-group">
-					<input type="password" placeholder="Confirm Password" name="cpassword" value="</?php echo $_POST['cpassword']; ?>" required>
+					<input type="password" placeholder="Confirm Password" name="cpassword" value="<?php echo $_POST['cpassword']; ?>" required>
 				</div>
 				<div class="input-group">
 					<button name="submit" class="btn">Register</button>
@@ -90,11 +88,12 @@ if (!isset($_SESSION['companyname']) && !isset($_SESSION['id'])) {
 				<p class="login-register-text">Have an account? <a href="index.php">Login Here</a>.</p>
 			</form>
 		</div>
-	</body> -->
-	<!-- </html> -->
+	</body>
+
+	</html>
 
 
-	<!DOCTYPE html>
+	<!-- <!DOCTYPE html>
 	<html lang="en">
 
 	<head>
@@ -147,15 +146,7 @@ if (!isset($_SESSION['companyname']) && !isset($_SESSION['id'])) {
 		<script src="./assets/purple/js/hoverable-collapse.js"></script>
 		<script src="./assets/purple/js/misc.js"></script>
 	</body>
-
-	</html>
-
-
-
-
-
-
-
+	</html> -->
 <?php } else {
 	header("Location: home/");
 } ?>

@@ -102,12 +102,6 @@ if (isset($_SESSION['companyid'])) { ?>
                                 <i class="mdi mdi-cash menu-icon"></i>
                             </a>
                         </li>
-                        <!-- <li class="nav-item">
-                            <a class="nav-link" href="../report/">
-                                <span class="menu-title">Payment Report</span>
-                                <i class="mdi mdi-report menu-icon"></i>
-                            </a>
-                        </li> -->
                     </ul>
                 </nav>
                 <script src="../assets/purple/vendors/js/vendor.bundle.base.js"></script>
